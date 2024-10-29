@@ -14,7 +14,6 @@ public class Bai1 {
 	            System.out.println("Hệ cơ số không hợp lệ!");
 	            return;
 	        }
-
 	        String result = Integer.toString(nb, b).toUpperCase();
 	        System.out.println("Kết quả chuyển đổi: " + result);
 	    }

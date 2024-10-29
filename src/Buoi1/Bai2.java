@@ -14,7 +14,7 @@ public class Bai2 {
 	            n /= 10;
 	        }
 
-	        System.out.println("Tích các chữ số: " + kq);
+	        System.out.println("Tích các chữ số: " + Math.abs(kq));
 	    }
 
 }
