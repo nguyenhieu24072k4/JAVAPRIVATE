@@ -11,12 +11,18 @@ public class B4 {
         for (int i = 0; i < n; i++) {
             a[i] = sc.nextInt();
         }
+        int t = sc.nextInt()int sum = 0;;
+        for(int it>0){
+            t--;
         int l = sc.nextInt();
         int r = sc.nextInt();
-        int sum = 0;
+        
         for (int i = l; i <= r; i++) {
             sum += a[i];
         }
         System.out.println(sum);
+        }
+        for
+        
     }
 }
