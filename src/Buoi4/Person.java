@@ -3,7 +3,6 @@ package Buoi4;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Scanner;
 
 public class Person {
     private ArrayList<Person> list = new ArrayList<>();
@@ -94,8 +93,6 @@ public class Person {
     }
 
     public static void main(String[] args) {
-        // TODO code application logic here
-        Person p1 = new Person();
 
     }
 

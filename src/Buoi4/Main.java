@@ -6,15 +6,19 @@ import java.util.Scanner;
 
 public class Main {
     private static ArrayList<Book> books = new ArrayList<>();
+    private static ArrayList<TacGia> tacGias = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         // Thêm một số sách mẫu
-        books.add(new Book(1, "Book 1", "Author 1", 1990, "Summary A", 100.0));
-        books.add(new Book(2, "Book 2", "Author 2", 2000, "Summary B", 150.0));
-        books.add(new Book(3, "Book 3", "Author 3", 1985, "Summary C", 200.0));
-        books.add(new Book(4, "Book 4", "Author 4", 2010, "Summary D", 120.0));
-        books.add(new Book(5, "Book 5", "Author 5", 1995, "Summary E", 180.0));
+        TacGia t1 = new TacGia("1","Nguyen Van A","Dong Da","0123445677");
+        TacGia t2 =new TacGia("2","Nguyen Van b","Ha Dong","0123445697");
+        TacGia t3 =new TacGia("3","Nguyen Van c","Hai Ba Trung","0123445678");
+
+
+        books.add(new Book(2, "Book 2", t1, 2000, "Summary B", 150.0));
+        books.add(new Book(3, "Book 3", t2, 1985, "Summary C", 200.0));
+        books.add(new Book(4, "Book 4", t3, 2010, "Summary D", 120.0));
 
         while (true) {
             System.out.println("\nMenu:");
@@ -58,14 +62,31 @@ public class Main {
     }
 
     // Thêm sách mới
+    private static void addTacGia(TacGia tg) {
+        System.out.print("Nhập mã tác giả: ");
+        String id = scanner.nextLine();
+        scanner.nextLine();
+
+        System.out.print("Nhập tên tác giả: ");
+        String FullName = scanner.nextLine();
+        System.out.print("Nhập địa chỉ tác giả: ");
+        String Address = scanner.nextLine();
+        scanner.nextLine();
+        System.out.print("Nhập số điện thoại tác giả: ");
+        String sdt = scanner.nextLine();
+
+
+        tacGias.add(new TacGia(id, FullName, Address, sdt));
+        System.out.println("Đã thêm tác giả mới thành công!");
+    }
     private static void addBook() {
         System.out.print("Nhập mã sách: ");
         int maSach = scanner.nextInt();
         scanner.nextLine();
         System.out.print("Nhập tên sách: ");
         String tenSach = scanner.nextLine();
-        System.out.print("Nhập tên tác giả: ");
-        String tenTacGia = scanner.nextLine();
+        TacGia tg =new TacGia();
+        addTacGia(tg);;
         System.out.print("Nhập năm sản xuất: ");
         int namSanXuat = scanner.nextInt();
         scanner.nextLine();
@@ -74,7 +95,7 @@ public class Main {
         System.out.print("Nhập giá tiền: ");
         double giaTien = scanner.nextDouble();
 
-        books.add(new Book(maSach, tenSach, tenTacGia, namSanXuat, tomTatNoiDung, giaTien));
+        books.add(new Book(maSach, tenSach,tg , namSanXuat, tomTatNoiDung, giaTien));
         System.out.println("Đã thêm sách mới thành công!");
     }
 
@@ -88,8 +109,8 @@ public class Main {
             if (book.getMaSach() == maSach) {
                 System.out.print("Nhập tên sách mới: ");
                 book.setTenSach(scanner.nextLine());
-                System.out.print("Nhập tên tác giả mới: ");
-                book.setTenTacGia(scanner.nextLine());
+                System.out.print("Nhập thông tin tác giả mới: ");
+                TacGia tg = new TacGia();
                 System.out.print("Nhập năm sản xuất mới: ");
                 book.setNamSanXuat(scanner.nextInt());
                 scanner.nextLine();
